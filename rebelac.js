@@ -56,4 +56,4 @@ client.on('guildMemberAdd', member => {
 member.guild.channels.find(r => r.id === '520378678362767362').send('Bienvenue sur le **Vieux.**');
 },3000);
 });
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
