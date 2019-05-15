@@ -50,11 +50,27 @@ ex ? ${prefixac}avatar @rebel
 **`);
 message.channel.sendEmbed(embed).then(m => m.delete(17000));}
 });
-client.on('guildMemberAdd', member => {
-      if(member.guild.id !== '511543836053471254') return;
-    setTimeout(function() {
-member.guild.channels.find(r => r.id === '544864596805025802').send('Bienvenue sur le **Vieux.**');
-},3000);
+
+
+client.on("message", message => {
+	var prefix = "-";
+if(message.content.startsWith(prefix + "avatar")){
+	    if(message.author.id != '475370547769769995') return;
+if(message.author.bot || message.channel.type == "dm") return;
+var args = message.content.split(" ")[1];
+var avt = args || message.author.id;
+client.fetchUser(avt)
+.then((user) => {
+avt = user
+let avtEmbed = new Discord.RichEmbed()
+.setColor("#36393e")
+.setAuthor(`${avt.username}'s Avatar`, message.author.avatarURL)
+.setImage(avt.avatarURL)
+.setFooter(`Avt.`, message.client.user.avatarURL);
+message.channel.send(avtEmbed);
+})
+.catch(() => message.channel.send(`Error`));
+} 
 });
 
 client.login(process.env.BOT_TOKEN);
