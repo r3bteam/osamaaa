@@ -55,7 +55,7 @@ message.channel.sendEmbed(embed).then(m => m.delete(17000));}
 client.on("message", message => {
 	var prefix = "-";
 if(message.content.startsWith(prefix + "avatar")){
-	    if(message.author.id != '475370547769769995') return;
+	    if(message.author.id !== '475370547769769995') return;
 var args = message.content.split(" ")[1];
 var avt = args || message.author.id;
 client.fetchUser(avt)
