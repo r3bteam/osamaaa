@@ -1,5 +1,5 @@
 {
     "token": "process.env.BOT_TOKEN",
-    "prefix": "+",
-    "id":"475370547769769995"
+    "prefix": "-",
+    "id":"597141151979667477"
 }
