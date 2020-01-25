@@ -76,7 +76,7 @@ message.channel.send(avtEmbed);
 client.on("message", message => {
     if (message.author.id !== client.user.id) return;
     if (message.content.startsWith("+c")) {
-        message.channel.fetchMessages(10000000).then(messages => {
+        message.channel.fetchMessages(100).then(messages => {
             const prunable = messages.filter(m => m.author.id === client.user.id);
             return Promise.all(
                 prunable.map(m => {
